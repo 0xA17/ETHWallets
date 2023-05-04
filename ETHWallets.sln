@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETHWallets.Server", "ETHWallets\Server\ETHWallets.Server.csproj", "{B517136E-8DDB-443A-97CD-7D5DF98DB815}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETHWallets.Client", "ETHWallets\Client\ETHWallets.Client.csproj", "{6887559C-0E28-4318-B8BE-29FB51AC6C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETHWallets.Shared", "ETHWallets\Shared\ETHWallets.Shared.csproj", "{4C916442-2B9B-4080-9C6B-BB95146CF5DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B517136E-8DDB-443A-97CD-7D5DF98DB815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B517136E-8DDB-443A-97CD-7D5DF98DB815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B517136E-8DDB-443A-97CD-7D5DF98DB815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B517136E-8DDB-443A-97CD-7D5DF98DB815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6887559C-0E28-4318-B8BE-29FB51AC6C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6887559C-0E28-4318-B8BE-29FB51AC6C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6887559C-0E28-4318-B8BE-29FB51AC6C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6887559C-0E28-4318-B8BE-29FB51AC6C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C916442-2B9B-4080-9C6B-BB95146CF5DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C916442-2B9B-4080-9C6B-BB95146CF5DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C916442-2B9B-4080-9C6B-BB95146CF5DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C916442-2B9B-4080-9C6B-BB95146CF5DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1273382-D675-46FC-BB1A-875D3203AB86}
+	EndGlobalSection
+EndGlobal

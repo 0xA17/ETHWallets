@@ -1,0 +1,78 @@
+﻿@page "/walletslist"
+@using ETHWallets.Shared.Models
+@inject HttpClient Http
+
+<h1>Wallets</h1>
+
+@if (wallets == null)
+{
+    <p>Loading...</p>
+}
+else if (wallets.Length == 0)
+{
+    <p>No wallets found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Address</th>
+                <th>
+                    <a @onclick="SortByBalance">Balance</a>
+                    @if (selectedSortDirection == SortType.asc)
+                    {
+                        <span>   &uarr;</span>
+                    }
+                    else
+                    {
+                        <span>   &darr;</span>
+                    }
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var wallet in sortedWallets)
+            {
+                <tr>
+                    <td>@wallet.Id</td>
+                    <td>@wallet.Address</td>
+                    <td>@wallet.Balance</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Wallet[] wallets;
+    private Wallet[] sortedWallets;
+    private SortType selectedSortDirection;
+
+    private enum SortType : Byte
+    {
+        desc,
+        asc
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        wallets = await Http.GetFromJsonAsync<Wallet[]>("api/Wallet");
+        SortByBalance();
+    }
+
+    private void SortByBalance()
+    {
+        if (selectedSortDirection == SortType.asc)
+        {
+            sortedWallets = wallets.OrderBy(w => w.Balance).ToArray();
+            selectedSortDirection = SortType.desc;
+        }
+        else
+        {
+            sortedWallets = wallets.OrderByDescending(w => w.Balance).ToArray();
+            selectedSortDirection = SortType.asc;
+        }
+    }
+}
