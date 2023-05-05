@@ -17,22 +17,22 @@ public class WalletController : ControllerBase
     {
         var wallets = new List<Wallet>();
 
-        using (var _context = new WalletsContext())
+        using (var walletsContext = new WalletsContext())
         {
             // Получить список кошельков из базы данных.
-            wallets = _context.Wallets.ToList();
+            wallets = walletsContext.Wallets.ToList();
 
-            var tasks = new List<Task>();
+            var getWalletBalanceTasks = new List<Task>();
 
             foreach (var wallet in wallets)
             {
-                tasks.Add(Task.Run(async () =>
+                getWalletBalanceTasks.Add(Task.Run(async () =>
                 {
                     wallet.Balance = await EthereumTool.GetWalletBalance(wallet.Address);
                 }));
             }
 
-            await Task.WhenAll(tasks);
+            await Task.WhenAll(getWalletBalanceTasks);
         }
 
         return wallets;
